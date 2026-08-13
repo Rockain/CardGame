@@ -1,0 +1,15 @@
+# CMake
+build/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+
+# Compilations
+*.obj
+*.exe
+*.pdb
+
+# VS Code
+.vscode/
