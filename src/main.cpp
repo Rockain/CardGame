@@ -21,13 +21,15 @@ int main()
     player1.giveDeck(std::move(strongDeck));
     player2.giveDeck(std::move(weakDeck));
 
+    int turn = 0;
     while (player1.getHealth() > 0 && player2.getHealth() > 0)
     {
-        player1.drawCard();
-        player1.playCard(0);
+        std::cout << "### Turn " << ++turn << " ###" << std::endl;
+        player1.draw(1);
+        player1.playCard(0, &player2);
 
-        player2.drawCard();
-        player2.playCard(0);
+        player2.draw(1);
+        player2.playCard(0, &player1);
     }
 
     return 0;

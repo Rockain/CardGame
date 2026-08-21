@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.20)
 project(CardGame)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB SOURCES CONFIGURE_DEPENDS
     "src/*.cpp"
@@ -11,6 +10,4 @@ file(GLOB SOURCES CONFIGURE_DEPENDS
 
 add_executable(CardGame ${SOURCES})
 
-target_include_directories(CardGame PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+target_include_directories(CardGame PRIVATE include)

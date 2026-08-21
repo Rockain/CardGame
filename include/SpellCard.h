@@ -9,11 +9,7 @@ class Player;
 class SpellCard : public Card
 {
 public:
-    SpellCard(
-        std::string name = "SpellCard",
-        unsigned int cost = 0,
-        Effects effects = {}
-    );
+    SpellCard(std::string name = "SpellCard", unsigned int cost = 0, Effects effects = {});
 
     void applyEffects(Player* target) override;
 };

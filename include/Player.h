@@ -26,7 +26,7 @@ public:
     unsigned int getHealth() const;
 
     void giveDeck(Deck&& deck);
-    void drawCard();
-    void playCard(int i);
+    void draw(unsigned int x);
+    void playCard(int i, Player* target);
     void takeDamage(unsigned int damage);
 };

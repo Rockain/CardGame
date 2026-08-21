@@ -16,15 +16,17 @@ void Player::giveDeck(Deck&& deck)
     this->deck = std::move(deck);
 }
 
-void Player::drawCard()
+void Player::draw(unsigned int x)
 {
     if (deck.size() > 0)
     {
-        hand.emplace_back(deck.draw());
+        std::cout << name << " - Draw " << x << " card from his deck" << std::endl;
+        for (int i = 0; i < x; i++)
+            hand.emplace_back(deck.draw());
     }
 }
 
-void Player::playCard(int i)
+void Player::playCard(int i, Player* target)
 {
     if (i < 0 || i >= static_cast<int>(hand.size()))
     {
@@ -35,9 +37,11 @@ void Player::playCard(int i)
     {
         std::cout << name << " - Play " << hand[i]->getName() << " for " << hand[i]->getCost() << std::endl;
 
-        hand[i]->applyEffects(this);
+        hand[i]->applyEffects(target);
         mana -= hand[i]->getCost();
         hand.erase(hand.begin() + i);
+
+        std::cout << name << " - Mana remaining : " << mana << std::endl;
     }
 }
 
