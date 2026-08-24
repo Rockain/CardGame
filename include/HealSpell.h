@@ -1,15 +1,14 @@
 #pragma once
 
 #include <string>
-
 #include "Card.h"
 
 class Player;
 
-class SpellCard : public Card
+class HealSpell : public Card
 {
 public:
-    SpellCard(std::string name = "SpellCard", unsigned int cost = 0, Effects effects = {});
+    HealSpell(std::string name = "HealSpell", unsigned int cost = 0, Effects effects = {});
 
     void applyEffects(Player* target) override;
 };
