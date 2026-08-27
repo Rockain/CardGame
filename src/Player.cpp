@@ -42,7 +42,7 @@ void Player::playCard(int i, Player* target)
     {
         std::cout << name << " - Play " << hand[i]->getName() << " for " << hand[i]->getCost() << " mana" << std::endl;
 
-        hand[i]->applyEffects(target);
+        hand[i]->applyEffects(this, target);
         mana -= hand[i]->getCost();
         hand.erase(hand.begin() + i);
 

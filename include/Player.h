@@ -19,7 +19,7 @@ private:
     std::vector<std::unique_ptr<Card>> hand;
 
 public:
-    Player(std::string name = "Player", unsigned int health = 100, unsigned int mana = 10);
+    Player(std::string name = "Player", unsigned int health = 50, unsigned int mana = 10);
 
     std::string getName() const;
     unsigned int getMana() const;

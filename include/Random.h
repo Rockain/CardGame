@@ -11,5 +11,5 @@ class Random
     public:
         Random();
 
-        int getInt(int min, int max) const;
+        int getInt(int min, int max);
 };

@@ -1,7 +1,9 @@
 #pragma once
 
+#include <memory>
 #include <string>
-#include "Effects.h"
+#include <vector>
+#include "Effect.h"
 
 class Player;
 
@@ -10,15 +12,13 @@ class Card
 private:
     std::string name;
     unsigned int cost;
-    Effects effects;
+    std::vector<std::unique_ptr<Effect>> effects;
 
 public:
-    Card(std::string name = "NONE", unsigned int cost = 0, Effects effects = {});
-    virtual ~Card() = default;
+    Card(std::string name = "NONE", unsigned int cost = 0, std::vector<std::unique_ptr<Effect>> effects = {});
 
     std::string getName() const;
     unsigned int getCost() const;
-    const Effects& getEffects() const;
 
-    virtual void applyEffects(Player* target);
+    void applyEffects(Player* user, Player* target);
 };
