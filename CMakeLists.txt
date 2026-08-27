@@ -8,6 +8,19 @@ file(GLOB SOURCES CONFIGURE_DEPENDS
     "src/*.cpp"
 )
 
-add_executable(CardGame ${SOURCES})
+list(REMOVE_ITEM SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp"
+)
+
+add_executable(CardGame
+    src/main.cpp
+    ${SOURCES}
+)
+
+add_executable(CardGameTests
+    tests/main.cpp
+    ${SOURCES}
+)
 
 target_include_directories(CardGame PRIVATE include)
+target_include_directories(CardGameTests PRIVATE include)
